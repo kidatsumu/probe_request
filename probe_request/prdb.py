@@ -15,7 +15,8 @@ print(data)
 #同じMACアドレスでグループ分け
 #group1 = data.groupby("Source")
 #group1.apply(print)
-data["mac_num"] = data.groupby(["Source"]).factorize()[0]
+data["mac_num"] = data["Source"].factorize()[0]
+print(data)
 #シーケンス番号で連続しているものでグループ分け
 
 #グループ分けしたものをSSIDの組み合わせの一致割合の高いものでグループ分け
