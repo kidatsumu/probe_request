@@ -16,7 +16,7 @@ print(data)
 #group1 = data.groupby("Source")
 #group1.apply(print)
 data["mac_num"] = data["Source"].factorize()[0]
-data["SSID_num"] = data["SSID"].factorize()[0]
+data["SSID_num"] = data["Info"].factorize()[0]
 print(data)
 #シーケンス番号で連続しているものでグループ分け
 
