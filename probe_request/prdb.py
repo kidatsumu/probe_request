@@ -28,7 +28,7 @@ while True:
 
     tmp2 = 0
 
-    for t in list1:
+    while True:
         if list1[tmp2][0] == data.loc[tmp,"Source"]:
             print("b")
             list1[list1.index(data.loc[tmp,"Source"])].append(data.loc[tmp,"Info"])
