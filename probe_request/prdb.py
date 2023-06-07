@@ -18,32 +18,18 @@ print(data)
 #group1.apply(print)
 data["mac_num"] = data["Source"].factorize()[0]
 data["SSID_num"] = data["Info"].factorize()[0]
-list1 = np.zeros((100,2))
-tmp = 0
-p = 0
-#先頭がMACアドレスでその後にSSIDが複数続く配列を作る
-while True:
-    if tmp == data.shape[0]:
-        break
+# MACアドレスでグループ化
+grouped = data.groupby("Source")
 
-    tmp2 = 0
+# 各グループのSSIDをまとめて操作
+for mac_address, group in grouped:
+    ssid_list = group["Info"].tolist()
+    # ここでSSIDリストを操作する
+    print(f"MACアドレス: {mac_address}")
+    print(f"SSIDリスト: {ssid_list}")
+    print("")
 
-    while True:
-        if list1[tmp2][0] == data.loc[tmp,"Source"]:
-            print("b")
-            list1[list1.index(data.loc[tmp,"Source"])].append(data.loc[tmp,"Info"])
-            break
-        elif all(list1[tmp2]):
-            print("b")
-            list1[p] = [data.loc[tmp,"Source"],data.loc[tmp,"Info"]]
-            p = p + 1
-            break
-        
-        tmp2 = tmp2 + 1
-            
-    tmp = tmp + 1
 
-print(list1)
 #シーケンス番号で連続しているものでグループ分け
 
 #グループ分けしたものをSSIDの組み合わせの一致割合の高いものでグループ分け
