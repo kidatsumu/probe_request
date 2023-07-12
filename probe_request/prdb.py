@@ -4,7 +4,7 @@ import re
 import itertools
 
 def calculate_match_rate(group1, group2):
-    common_elements = set(group1) & set(group2)
+    common_elements = set(list(group1)) & set(list(group2))
     match_rate = len(common_elements) / max(len(group1), len(group2))
     return match_rate
 
